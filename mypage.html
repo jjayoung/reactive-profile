@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flexbox Navbar</title>
+    <style>
+        @media (min-width: 601px) {
+            body {
+                background-color: grey;
+            
+            }
+        }
+        @media (max-width: 600px) {
+            body {
+                background-color: #e04281;
+            
+            }
+        }
+        *{
+            margin: 0;
+            padding: 0; 
+        }
+        .nav-container {
+            background-color: rgb(13, 24, 62);
+            list-style: none;
+            display: flex;
+        }
+        .nav-item {
+            padding: 15px;
+            cursor: pointer;
+        }
+        .nav-item:hover {
+            background-color: #e04281;
+        }
+        .nav-item a {
+            text-align: center;
+            text-decoration: none;
+            color: white;
+        }
+        .flex-container {  
+            /*background-color:  #e04281;*/
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            flex-wrap: nowrap;
+            /*flex-flow: row wrap;*/
+            /*justify-content: space-around; */
+            align-content: center;
+            align-items: center;
+            justify-content: center;
+        }
+        .flex-item {
+            color: white;
+            width: 400px;
+            height: 50px;
+            background-color: #e04281;
+            text-align: center;
+            vertical-align: center;
+            font-size: 30px
+            
+            /*border: 1px solid rgb(255, 255, 255);*/
+        }
+    </style>
+</head>
+<body>
+    <ul class="nav-container">
+        <li class="nav-item"><a href="">Home</a></li>
+        <li class="nav-item"><a href="">Mypage</a></li>
+    </ul>
+    <div class="flex-container">
+
+        <div class="flex-item item1">장아영</div>
+        <div class="flex-item item1">중앙대학교</div>
+        <div class="flex-item item1">경영학부</div>
+     
+    </div>
+</body>
+</html>
