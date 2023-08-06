@@ -5,19 +5,19 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Flexbox Navbar</title>
-    <style>
+    <style>/*CSS 코드작성*/
         @media (min-width: 601px) {
             body {
                 background-color: grey;
             
             }
-        }
+        } /*배경이 601px 이상일 때 배경 색 grey*/
         @media (max-width: 600px) {
             body {
                 background-color: #e04281;
             
             }
-        }
+        } /*배경이 600px 이하일 때 배경 색 #e04281*/
         *{
             margin: 0;
             padding: 0; 
@@ -38,28 +38,29 @@
             text-align: center;
             text-decoration: none;
             color: white;
-        }
+        }/*마우스 접근 시 배경 색 변경, 글자 색은 white*/
         .flex-container {  
-            /*background-color:  #e04281;*/
+            background-color:  #e04281;/*배경 색 설정*/
             height: 100vh;
             display: flex;
-            flex-direction: column;
-            flex-wrap: nowrap;
+            flex-direction: column;/*아이템 추가 시 위에서 아래로 */
+            flex-wrap: nowrap;/*배열 시 한 줄로 표시*/
             /*flex-flow: row wrap;*/
             /*justify-content: space-around; */
             align-content: center;
             align-items: center;
-            justify-content: center;
+            justify-content: center;/*위치 중앙으로 지정*/
         }
         .flex-item {
             color: white;
             width: 400px;
-            height: 50px;
+            height: 300px;/*높이, 너비 설정*/
             background-color: #e04281;
             text-align: center;
             vertical-align: center;
-            font-size: 30px
-            
+            font-size: 30px;
+            display: flex;
+            align-items: center;/*위치 중앙으로 설정*/
             /*border: 1px solid rgb(255, 255, 255);*/
         }
     </style>
@@ -70,11 +71,30 @@
         <li class="nav-item"><a href="">Mypage</a></li>
     </ul>
     <div class="flex-container">
-
-        <div class="flex-item item1">장아영</div>
-        <div class="flex-item item1">중앙대학교</div>
-        <div class="flex-item item1">경영학부</div>
-     
+        <div class="flex-item Information"></div>
+        
     </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+          // Fetch로 data.json 파일을 가져옴
+          fetch('data.json')
+            .then(response => response.json()) // .json()으로 javascript로 변환
+            .then(data => {
+              // 데이터를 받아와서 HTML 요소로 출력
+              const container = document.querySelector('.flex-container');
+              container.innerHTML = `
+                <h2>Information</h2>
+                <p><strong>이름:</strong> ${data.items[0].name}</p>
+                <p><strong>대학교:</strong> ${data.items[0].univ}</p>
+                <p><strong>전공:</strong> ${data.items[0].major}</p>
+              `;
+            })
+            .catch(error => {
+              console.error('데이터를 가져오는데 실패하였습니다.', error);
+            });
+        });
+      </script>
+    
 </body>
 </html>
